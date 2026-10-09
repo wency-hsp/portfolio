@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄树鹏 · 产品经理作品集 | 银行积分兑换商城</title>
+<style>
+  :root{
+    --ink:#111827; --ink2:#374151; --ink3:#6b7280; --line:#e5e7eb;
+    --bg:#f7f8fa; --card:#fff;
+    --brand:#1a4d8f; --brand2:#2f6fc4; --brand-soft:#eef4fc;
+    --gold:#b8860b; --gold-soft:#fdf6e3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ===== 顶部 ===== */
+  .hero{background:linear-gradient(135deg,#123a6d 0%,#1a4d8f 55%,#2f6fc4 100%);color:#fff;padding:52px 24px 44px}
+  .wrap{max-width:1080px;margin:0 auto}
+  .tagline{font-size:13px;opacity:.85;letter-spacing:2px;margin-bottom:10px}
+  h1{font-size:30px;font-weight:700;letter-spacing:.5px;line-height:1.35}
+  .sub{font-size:15px;opacity:.92;margin-top:12px;max-width:760px}
+  .role{
+    display:inline-block;margin-top:18px;padding:6px 14px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+    border-radius:4px;font-size:13px
+  }
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:14px 12px;text-align:center}
+  .stat b{display:block;font-size:25px;font-weight:700;line-height:1.2}
+  .stat span{font-size:12px;opacity:.86}
+
+  /* ===== 通用 ===== */
+  section{max-width:1080px;margin:0 auto;padding:40px 24px}
+  h2{font-size:20px;color:var(--brand);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  h2::before{content:'';width:4px;height:20px;background:var(--brand);border-radius:2px}
+  .lead{color:var(--ink2);font-size:14px;margin-bottom:20px;max-width:820px}
+
+  /* ===== 复杂度三型 ===== */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .c h3{font-size:15px;color:var(--ink);margin-bottom:4px}
+  .c .tag{font-size:12px;color:var(--brand);background:var(--brand-soft);display:inline-block;padding:2px 8px;border-radius:3px;margin-bottom:10px}
+  .c p{font-size:13.5px;color:var(--ink2)}
+
+  /* ===== 原型展示 ===== */
+  .frame-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .frame-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+  .frame-top b{font-size:15px;color:var(--ink)}
+  .frame-top span{font-size:12.5px;color:var(--ink3)}
+  .phones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .phone-col{text-align:center}
+  .phone{
+    width:100%;max-width:250px;aspect-ratio:375/667;margin:0 auto;
+    border:8px solid #1f2937;border-radius:20px;overflow:hidden;background:#fff;
+    box-shadow:0 4px 14px rgba(0,0,0,.13)
+  }
+  .phone iframe{width:100%;height:100%;border:0;display:block}
+  .phone-col p{font-size:13px;color:var(--ink2);margin-top:10px;font-weight:500}
+  .phone-col small{display:block;font-size:11.5px;color:var(--ink3);font-weight:400;margin-top:2px}
+
+  /* ===== 规则设计 ===== */
+  .rule{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:8px;padding:16px 18px;margin-bottom:14px}
+  .rule h3{font-size:15px;color:var(--brand);margin-bottom:6px}
+  .rule p{font-size:13.5px;color:var(--ink2)}
+  .rule .q{font-size:13px;color:var(--ink3);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+
+  /* ===== 文档 ===== */
+  .docs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .doc{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:15px 17px}
+  .doc b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:3px}
+  .doc span{font-size:12.5px;color:var(--ink3)}
+  .doc .num{float:right;font-size:12px;color:var(--brand);background:var(--brand-soft);padding:1px 8px;border-radius:3px}
+
+  /* ===== CTA ===== */
+  .cta{background:var(--brand-soft);border:1px solid #c5daf0;border-radius:10px;padding:22px 24px;margin-top:8px}
+  .cta p{font-size:14px;color:var(--ink2);margin-bottom:14px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:10px 22px;border-radius:6px;font-size:14px;
+    text-decoration:none;font-weight:500;transition:.15s
+  }
+  .btn-main{background:var(--brand);color:#fff}
+  .btn-main:hover{background:var(--brand2)}
+  .btn-ghost{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+  .btn-ghost:hover{background:#f0f6fd}
+
+  footer{background:#1f2937;color:#9ca3af;padding:24px;text-align:center;font-size:12.5px}
+  footer b{color:#fff;display:block;font-size:14px;margin-bottom:4px}
+
+  @media(max-width:820px){
+    .phones,.cards,.docs{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    h1{font-size:24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="tagline">作品集 · PORTFOLIO</div>
+    <h1>银行积分兑换微信小程序 · 福利商城</h1>
+    <p class="sub">
+      C端移动端产品设计。项目本质是<b>聚合平台</b>而非自营商城——融合自营商品、外部 H5（第三方蛋糕）、第三方供应商（电影票）三类供给，
+      需拆解为<b>三条完全独立的支付链路</b>，这是整个项目最核心的复杂度来源。
+    </p>
+    <div class="role">角色：产品实习生 · 负责原型设计与需求文档输出（V0.1 – V1.1）</div>
+
+    <div class="stats">
+      <div class="stat"><b>69</b><span>高保真原型页面</span></div>
+      <div class="stat"><b>45</b><span>PRD / 逻辑清单 / 纪要</span></div>
+      <div class="stat"><b>10</b><span>版本迭代 V0.1→V1.1</span></div>
+      <div class="stat"><b>54</b><span>编号业务规则</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 复杂度来源 -->
+<section>
+  <h2>项目复杂度从哪来</h2>
+  <p class="lead">三类供给的支付逻辑完全不同，因此不能用一套规则套用。这是整个设计工作的起点。</p>
+  <div class="cards">
+    <div class="c">
+      <h3>自营商品</h3>
+      <span class="tag">积分 + 优惠券 + 现金</span>
+      <p>计算顺序：<b>券 → 积分 → 现金补差</b>。先扣券保证券一定用得上；反过来扣会出现"有券却因积分不足用不上"的客诉。</p>
+    </div>
+    <div class="c">
+      <h3>外部 H5（蛋糕）</h3>
+      <span class="tag">web-view + JS Bridge</span>
+      <p>嵌入第三方页面，需<b>拦截下单动作</b>走我方支付。地址信息由我方传入，履约由对方负责。</p>
+    </div>
+    <div class="c">
+      <h3>电影票</h3>
+      <span class="tag">仅通兑积分 + 次卡</span>
+      <p><b>业务侧限制不支持优惠券</b>——券的结算需供应商配合核销，商务未谈成。强行支持会引入"券在第三方核销"的对账问题。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 原型体验 -->
+<section style="padding-top:8px">
+  <h2>可交互原型（点击可操作）</h2>
+  <p class="lead">
+    以下为真实原型页面，可直接点击体验。三个页面分别对应<b>核心规则最密集</b>的三个模块。
+  </p>
+  <div class="frame-box">
+    <div class="frame-top">
+      <b>原型实时预览</b>
+      <span>提示：手机框内可直接点击操作 · 完整 69 页见下方入口</span>
+    </div>
+    <div class="phones">
+      <div class="phone-col">
+        <div class="phone"><iframe src="pages/home_page.html" loading="lazy"></iframe></div>
+        <p>首页 · 商城入口<small>组件化布局 / 魔方配置商品位</small></p>
+      </div>
+      <div class="phone-col">
+        <div class="phone"><iframe src="pages/order_product.html" loading="lazy"></iframe></div>
+        <p>确认订单 · 支付核心<small>券→积分→现金 三模式动态渲染</small></p>
+      </div>
+      <div class="phone-col">
+        <div class="phone"><iframe src="pages/points_batch_select.html" loading="lazy"></iframe></div>
+        <p>积分抵扣 · 批次选择<small>两层排序 + 价格权重分配</small></p>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
+      <div class="btns">
+        <a class="btn btn-main" href="pages/home_page.html" target="_blank">打开完整原型（69 页）</a>
+        <a class="btn btn-ghost" href="page-index.html" target="_blank">全部页面索引</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心规则设计 -->
+<section style="padding-top:8px">
+  <h2>三个核心规则设计</h2>
+  <p class="lead">以下三条是我在文档化过程中主要推演和论证的规则，均可接受深挖追问。</p>
+
+  <div class="rule">
+    <h3>① 库存扣减三档漏斗</h3>
+    <p>
+      <b>加购</b>宽松（仅提示不真扣）→ <b>结算</b>较严格（红字提示+刷新）→ <b>支付</b>真实扣减。
+      加购即扣库存会导致<b>库存被占死</b>（用户随手加后放置不买）与<b>锁竞争</b>（热门商品多人同时加购）。
+      且区分：<b>彻底无货→拦截</b>（确定），<b>库存紧张→提示放行</b>（可能是并发瞬时数据，不确定）。
+    </p>
+    <div class="q">自省：初版设计为"库存紧张时静默加购"，回头看应改为有提示放行——因为拦截用户付出时间成本后发现无法购买，体验更差。</div>
+  </div>
+
+  <div class="rule">
+    <h3>② 积分抵扣多批次分配算法</h3>
+    <p>
+      两层独立排序：批次间按<b>适用范围"窄→宽"</b>、批次内按<b>过期时间"早→晚"</b>，再以<b>商品价格权重</b>分配。
+      不用"按积分比例平均分"，因为会产生 <b>0 元商品</b>，而 0 元商品退款极难处理。
+      明确<b>不找零</b>：只消耗等额积分，剩余积分保留在账户。
+    </p>
+    <div class="q">
+      硬证据（同一算例对比）：窄范围优先消耗 <b>6000</b> 分；宽范围优先仅消耗 <b>4875</b> 分，差 <b>1125</b> 分。
+    </div>
+  </div>
+
+  <div class="rule">
+    <h3>③ 订单与多包裹状态映射</h3>
+    <p>
+      一单可拆多包裹（供应链按商品维度拆单）。订单状态 = <b>MIN(所有包裹状态)</b>，优先级：待发货 &lt; 运输中 &lt; 已签收。
+      理由是<b>不能让用户误判</b>——若显示"已完成"但仍有包裹在途，必然产生投诉。
+      <b>"部分发货/部分签收"是中间态，不作为订单主状态入库</b>，仅在详情页由前端按包裹实时推导。
+    </p>
+    <div class="q">自省：自动确认收货的 15 天是拍的经验值，应做成可配置项并用历史数据校准，不该硬编码进 PRD。</div>
+  </div>
+</section>
+
+<!-- 文档产出 -->
+<section style="padding-top:8px">
+  <h2>文档产出</h2>
+  <p class="lead">采用<b>三段式业务逻辑清单</b>结构：功能用例表 + 关键字段数据来源 + 业务逻辑增强。中间那段把每个字段归属到具体后台系统，研发与测试无需猜测。</p>
+  <div class="docs">
+    <div class="doc"><span class="num">695 行</span><b>业务逻辑清单 V0.3</b><span>功能用例表 · 字段数据来源 · 边界与异常分支</span></div>
+    <div class="doc"><span class="num">882 行</span><b>PRD V0.3 下单支付</b><span>9 页面 · 54 条编号规则 · 3 张流程图</span></div>
+    <div class="doc"><span class="num">237 行</span><b>积分使用与分配方案 V0.3</b><span>两层排序算法 · 优缺点分析 · 风险场景</span></div>
+    <div class="doc"><span class="num">5 份</span><b>需求 / 技术评审纪要</b><span>评审结论 · 待办分工 · 未决事项标记</span></div>
+  </div>
+</section>
+
+<!-- 迭代 -->
+<section style="padding-top:8px">
+  <h2>版本迭代主线</h2>
+  <p class="lead">「用户选积分的单位」越来越细：<b>单类型 → 单批次 → 同组多批次叠加</b>。而底层三原则从V0.2 到 V0.7 从未变过：<b>窄范围优先、快过期优先、按价格权重分配</b>。</p>
+  <div class="cards">
+    <div class="c">
+      <h3>V0.1 – V0.2 基础与积分</h3>
+      <span class="tag">地基</span>
+      <p>确立抵扣设计思想：两层独立排序、退款铁律（按付款比例退）、明确不找零。</p>
+    </div>
+    <div class="c">
+      <h3>V0.3 单类型</h3>
+      <span class="tag">工程取舍</span>
+      <p>逻辑简单、退款清晰、并发安全、测试成本低。代价是积分利用率低——我在文档中自曝了 5 条缺点。</p>
+    </div>
+    <div class="c">
+      <h3>V0.7 同组多批次叠加</h3>
+      <span class="tag">跨组置灰</span>
+      <p>不同类型/范围的批次<b>自动置灰不可选</b>——不用弹窗提示再重选，而是从交互层面消灭错误可能。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top:8px">
+  <div class="cta">
+    <p><b>完整原型与文档均可查看</b><br>
+    69 个原型页面全部可交互；45 份 PRD、业务逻辑清单、技术评审纪要可在仓库中直接阅读。</p>
+    <div class="btns">
+      <a class="btn btn-main" href="pages/home_page.html" target="_blank">进入完整原型</a>
+      <a class="btn btn-ghost" href="page-index.html" target="_blank">全部页面索引（69 页）</a>
+      <a class="btn btn-ghost" href="doc/V0.3/业务逻辑清单_V0.3.md" target="_blank">查看业务逻辑清单</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:1080px;margin:0 auto">
+    <b>黄树鹏 · 求职产品经理</b>
+    广东科技学院 大数据技术本科 · GPA 3.7/4（专业前 5%）· 日语 N2<br>
+    联系方式：18122870286（电话 / 微信）
+  </div>
+</footer>
+
+</body>
+</html>
